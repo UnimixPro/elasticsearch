@@ -1,0 +1,21 @@
+# search 
+curl http://127.0.0.1:9200/magento2dev_product_4_v2/_search -d'
+  {
+     "query": { "match_all": {} },
+       "sort": {
+            "skateboard_deck_length_value": {"order" : "desc"}
+        }
+        
+       
+  }' -H "Content-Type: application/json"
+
+# save
+curl -XPUT http://127.0.0.1:9200/magento2dev_product_4_v2/_mapping  -d ' {"properties":{"skateboard_deck_length_value":{"type":"text","fielddata":true}}}' -H "Content-Type: application/json"
+
+
+
+// remove all indices
+curl -X DELETE 'http://localhost:9200/_all'
+
+// list of all indices
+curl http://127.0.0.1:9200/_cat/indices
