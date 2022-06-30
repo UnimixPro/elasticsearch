@@ -1,3 +1,7 @@
+#
+curl 'localhost:9200/_cat/indices?v'
+
+
 # search 
 curl http://127.0.0.1:9200/magento2dev_product_4_v2/_search -d'
   {
